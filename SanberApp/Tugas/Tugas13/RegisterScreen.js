@@ -1,28 +1,33 @@
 import React, { Component } from 'react'
 import {
 	View,
-	StyleSheet,
-	Button,
-	Text,
-	TextInput,
+	Text, TextInput,
+	TouchableOpacity,
 	Image,
-	TouchableOpacity
+	StyleSheet
 } from 'react-native'
 
-export default class loginPage extends Component {
+export default class RegisterScreen extends Component{
 	render(){
 		return(
 			<View style={styles.container}>
-				<Text style={styles.bigTitle}>
-					Tentang Saya
-				</Text>
 				<View style={styles.brandLogoContainer}>
 					<Image
 						source={require('../../images/brandLogo.png')}
 						style={{width: 80, height: 80}}
 					/>
 				</View>
-				<Text style={styles.title}>Login</Text>
+				<Text style={styles.title}>Register</Text>
+				<View style={styles.inputGroup}>
+					<Text style={styles.text, styles.inputLabel}>
+						Nama lengkap
+					</Text>
+					<TextInput
+						style={styles.inputText}
+						placeholder="contoh: evolio"
+						placeholderStyle={styles.inputText, styles.inputPlaceholder}
+					/>
+				</View>
 				<View style={styles.inputGroup}>
 					<Text style={styles.text, styles.inputLabel}>
 						Email
@@ -44,21 +49,32 @@ export default class loginPage extends Component {
 						secureTextEntry={true}
 					/>
 				</View>
+				<View style={styles.inputGroup}>
+					<Text style={styles.text, styles.inputLabel}>
+						Konfirmasi Password
+					</Text>
+					<TextInput
+						style={styles.inputText}
+						placeholder="Konfirmasi Password"
+						placeholderStyle={styles.inputText, styles.inputPlaceholder}
+						secureTextEntry={true}
+					/>
+				</View>
 				<TouchableOpacity style={{marginTop: 24, marginBottom: 32}}>
 					<Text
 						style={styles.button, styles.btnPrimary}
 					>
-						Masuk
+						Buat Akun
 					</Text>
 				</TouchableOpacity>
 				<Text style={styles.textCenter}>
-					Belum Punya Akun ?
+					Sudah Punya Akun ?
 				</Text>
 				<TouchableOpacity style={{marginTop: 16}}>
 					<Text
 						style={styles.button, styles.btnOutlinePrimary}
 					>
-						Registrasi
+						Masuk
 					</Text>
 				</TouchableOpacity>
 			</View>
