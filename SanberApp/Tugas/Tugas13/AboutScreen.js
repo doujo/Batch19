@@ -159,7 +159,7 @@ export default class AboutScreen extends Component {
 const styles = StyleSheet.create({
 	container: {
 		display: 'flex',
-		flexdirection: 'column',
+		flexDirection: 'column',
 		paddingVertical: 48,
 		paddingHorizontal: 20
 	},
@@ -174,7 +174,7 @@ const styles = StyleSheet.create({
 		/* Big Title */
 		fontFamily: 'Inter',
 		fontStyle: 'normal',
-		fontWeight: 'semibold',
+		fontWeight: '600',
 		fontSize: 28,
 		lineHeight: 47,
 		/* identical to box height, or 130% */
