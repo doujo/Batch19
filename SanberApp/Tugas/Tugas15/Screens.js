@@ -48,13 +48,11 @@ const DrawerContainer = () => (
 
 export const TabScreen = ({ navigation }) => {
   return (
-    <ScreenContainer>
-			<Tabs.Navigator>
-				<Tabs.Screen name="Skill" component={DrawerContainer}/>
-				<Tabs.Screen name="Project" component={ProjectScreen}/>
-				<Tabs.Screen name="Add" component={AddScreen}/>
-			</Tabs.Navigator>
-    </ScreenContainer>
+		<Tabs.Navigator>
+			<Tabs.Screen name="Skill" component={DrawerContainer}/>
+			<Tabs.Screen name="Project" component={ProjectScreen}/>
+			<Tabs.Screen name="Add" component={AddScreen}/>
+		</Tabs.Navigator>
   );
 };
 
