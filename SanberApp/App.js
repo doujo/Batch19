@@ -15,11 +15,13 @@ import RegisterScreen from './Tugas/Tugas13/RegisterScreen'
 import AboutScreen from './Tugas/Tugas13/AboutScreen'
 
 import Tugas14 from './Tugas/Tugas14/App.js'
+import Tugas15 from './index'
 
 export default function App() {
   return (
 		<>
-			<Tugas14 />
+			tes
+			<Tugas15 />
 		</>
   );
 }
