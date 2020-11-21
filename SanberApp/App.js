@@ -10,19 +10,16 @@ import {
 	FlatList
 } from 'react-native';
 
-import LoginScreen from './Tugas/Tugas13/LoginScreen'
-import RegisterScreen from './Tugas/Tugas13/RegisterScreen'
-import AboutScreen from './Tugas/Tugas13/AboutScreen'
+//import LoginScreen from './Tugas/Tugas13/LoginScreen'
+//import RegisterScreen from './Tugas/Tugas13/RegisterScreen'
+//import AboutScreen from './Tugas/Tugas13/AboutScreen'
 
-import Tugas14 from './Tugas/Tugas14/App.js'
-import Tugas15 from './index'
+//import Tugas14 from './Tugas/Tugas14/App.js'
+import Tugas15 from './Tugas/Tugas15/Index'
 
 export default function App() {
   return (
-		<>
-			tes
-			<Tugas15 />
-		</>
+		<Tugas15 />
   );
 }
 

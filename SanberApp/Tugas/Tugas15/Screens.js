@@ -1,7 +1,16 @@
 import React from "react";
 import { View, Text, StyleSheet, Button, Alert } from "react-native";
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { createStackNavigator } from '@react-navigation/stack'
+import { createDrawerNavigator } from '@react-navigation/drawer'
 
 // import { AuthContext } from "./context";
+const Tabs = createBottomTabNavigator()
+const SkillStack = createStackNavigator()
+const ProjectStack = createStackNavigator()
+const AddStack = createStackNavigator()
+
+const Drawer = createDrawerNavigator()
 
 const styles = StyleSheet.create({
   container: {
@@ -21,82 +30,83 @@ const ScreenContainer = ({ children }) => (
   <View style={styles.container}>{children}</View>
 );
 
-export const Home = ({navigation}) => (
+export const SignIn = ({ navigation }) => (
   <ScreenContainer>
-    <Text>Master List Screen</Text>
+		<Text>Login Screen</Text>
 		<Button
-			title="React Native by Example"
-			onPress={() =>
-					navigation.push('Details', {name: 'React Native by Example'})
-			}
+		title="Menuju Skill Screen"
+		onPress={() => navigation.push('TabScreen')} />
+  </ScreenContainer>
+);
+
+const DrawerContainer = () => (
+	<Drawer.Navigator>
+		<Drawer.Screen name="Home" component={SkillScreen} />
+		<Drawer.Screen name="About" component={AboutScreen} />
+	</Drawer.Navigator>
+)
+
+export const TabScreen = ({ navigation }) => {
+  return (
+    <ScreenContainer>
+			<Tabs.Navigator>
+				<Tabs.Screen name="Skill" component={DrawerContainer}/>
+				<Tabs.Screen name="Project" component={ProjectScreen}/>
+				<Tabs.Screen name="Add" component={AddScreen}/>
+			</Tabs.Navigator>
+    </ScreenContainer>
+  );
+};
+
+const SkillStackScreen = () => (
+	<SkillStack.Navigator>
+		<SkillStack.Screen name="ProjectScreen" component={ProjectScreen}/>
+		<SkillStack.Screen name="SkillScreen" component={SkillScreen}/>
+	</SkillStack.Navigator>
+)
+
+const AddStackScreen = () => (
+	<AddStack.Navigator>
+		<AddStack.Screen name="SkillScreen" component={SkillScreen}/>
+		<AddStack.Screen name="ProjectScreen" component={ProjectScreen}/>
+	</AddStack.Navigator>
+)
+
+const ProjectStackScreen = () => {
+	<ProjectStack.Navigator>
+		<ProjectStack.Screen name="SkillScreen" component={SkillScreen}/>
+		<ProjectStack.Screen name="AddScreen" component={AddScreen}/>
+	</ProjectStack.Navigator>
+}
+
+export const SkillScreen = ({ navigation }) => (
+	<ScreenContainer>
+		<Text>Skill Screen</Text>
+		<Button
+			title="Open drawer"
+			onPress={() => navigation.toggleDrawer()}
 		/>
+	</ScreenContainer>
+)
+
+export const ProjectScreen = ({ navigation }) => (
+	<ScreenContainer>
+		<Text>Project Screen</Text>
+	</ScreenContainer>
+)
+
+export const AddScreen = ({ navigation }) => (
+	<ScreenContainer>
+		<Text>Add Screen</Text>
+	</ScreenContainer>
+)
+
+export const AboutScreen = ({ navigation }) => (
+	<ScreenContainer>
+		<Text>About Screen</Text>
 		<Button
-			title="React Native School"
-			onPress={() => navigation.push('Details', {name: 'React Native School'})} />
-    <Button title="Drawer" onPress={() => navigation.tooggleDrawer()} />
-  </ScreenContainer>
-);
-
-export const Details = ({route }) => (
-  <ScreenContainer>
-    <Text>Details Screen</Text>
-		{route.params.name && <Text>{route.params.name}</Text>}
-  </ScreenContainer>
-);
-
-export const Search = ({ navigation }) => (
-  <ScreenContainer>
-    <Text>Search Screen</Text>
-    <Button title="Search 2" onPress={() => navigation.push('Search2')} />
-		<Button title="React Native School" onPress={() => {
-			navigation.navigate('Home', {
-				screen: 'Details',
-				params: { name: 'React Native schoolll' }
-			})
-		}} />
-  </ScreenContainer>
-);
-
-export const Search2 = () => (
-  <ScreenContainer>
-    <Text>Search2 Screen</Text>
-  </ScreenContainer>
-);
-
-export const Profile = ({ navigation }) => {
-  return (
-    <ScreenContainer>
-      <Text>Profile Screen</Text>
-      <Button title="Drawer" onPress={() => navigation.toggleDrawer()} />
-      <Button title="Sign Out" onPress={() => alert("todo!")} />
-    </ScreenContainer>
-  );
-};
-
-export const Splash = () => (
-  <ScreenContainer>
-    <Text>Loading...</Text>
-  </ScreenContainer>
-);
-
-export const SignIn = ({ navigation }) => {
-  return (
-    <ScreenContainer>
-      <Text>Sign In Screen</Text>
-      <Button title="Sign In" onPress={() => alert("todo!")} />
-			<Button
-				title="Create Account"
-				onPress={() => navigation.push("CreateAccount")}
-			/>
-    </ScreenContainer>
-  );
-};
-
-export const CreateAccount = ({ navigation }) => {
-  return (
-    <ScreenContainer>
-      <Text>Create Account Screen</Text>
-      <Button title="Sign Up" onPress={() => alert("todo") } />
-    </ScreenContainer>
-  );
-};
+			title="Open drawer"
+			onPress={() => navigation.toggleDrawer()}
+		/>
+	</ScreenContainer>
+)
