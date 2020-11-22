@@ -16,10 +16,11 @@ import {
 
 //import Tugas14 from './Tugas/Tugas14/App.js'
 import Tugas15 from './Tugas/Tugas15/Index'
+import Quiz3 from './Quiz3/HomeScreen.js'
 
 export default function App() {
   return (
-		<Tugas15 />
+		<Quiz3 />
   );
 }
 
