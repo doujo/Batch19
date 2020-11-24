@@ -15,12 +15,13 @@ import {
 //import AboutScreen from './Tugas/Tugas13/AboutScreen'
 
 //import Tugas14 from './Tugas/Tugas14/App.js'
-import Tugas15 from './Tugas/Tugas15/Index'
-import Quiz3 from './Quiz3/HomeScreen.js'
+//import Tugas15 from './Tugas/Tugas15/Index'
+//import Quiz3 from './Quiz3/HomeScreen.js'
+import Tugas16 from './src'
 
 export default function App() {
   return (
-		<Quiz3 />
+		<Tugas16 />
   );
 }
 
